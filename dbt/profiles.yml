@@ -1,0 +1,13 @@
+F360:
+    outputs:
+    fashion:
+        account: '{{ env_var("SNOWFLAKE_ACCOUNT"})}'
+        database: '{{ env_var("FASHION")}}'
+        password: '{{ env_var("SNOWFLAKE_PASSWORD")}}'
+        role: '{{ env_var("F360_ROLE")}}'
+        schema: '{{ env_var("SHOP")}}'
+        threads: 6
+        type: snowflake
+        user:  '{{ env_var("SNOWFLAKE_USER")}}'
+        warehouse:  '{{ env_var("PC_DBT_WH")}}'
+    target: fashion
