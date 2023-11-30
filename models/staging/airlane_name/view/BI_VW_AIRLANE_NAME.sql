@@ -1,8 +1,8 @@
-CREATE OR REPLACE VIEW AIRLANE.FLIGHTS.BI_VW_AIRLANE_NAME 
+CREATE OR REPLACE VIEW AIRLINES.FLIGHTS.BI_VW_AIRLANE_NAME  
 COMMENT = 'Informations about flights and delay and cancellations in 2023 year'
 (
- AIRLINE comment 'Name of Airlane',
-    AIRLINE_DOT comment 'Name of Airlane with airline code identifier',,
+    AIRLINE comment 'Name of Airlane',
+    AIRLINE_DOT comment 'Name of Airlane with airline code identifier',
     AIRLINE_CODE comment 'Code of Airlane - identifier',
     FL_DATE  comment 'Flight Date (yyyymmdd)',
     ORIGIN comment 'Origin Airport',
@@ -36,9 +36,6 @@ COMMENT = 'Informations about flights and delay and cancellations in 2023 year'
 For example, if a plane scheduled to depart at 2:00 PM is delayed because the aircraft assigned to it arrived at the gate 30 minutes late from a previous flight, the "Late Aircraft Delay" for that flight would be 30 minutes.',
     FL_YEAR comment 'Flight YEAR (yyyy)' ,
     FL_MONTH comment 'Flight MONTH (MM)',
-    FL_DAY comment 'Flight DAY (DD)'
-
-)
-as
-
-select * from AIRLANE_NAME 
+    FL_DAY comment 'Flight DAY (DD)')
+AS SELECT *
+from AIRLINES.FLIGHTS.AIRLANE_NAME
