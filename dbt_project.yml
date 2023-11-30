@@ -2,7 +2,7 @@
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-name: 'my_new_project'
+name: 'Flight_Delay_and_Cancellation'
 version: '1.0.0'
 config-version: 2
 
@@ -36,7 +36,33 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 
 models:
-  my_new_project:
+  Flight_Delay_and_Cancellation:
     # Applies to all files under models/example/
-    example:
-      +materialized: table
+    staging:
+      airlane_name:
+        table:
+          +materialized: table
+    staging:
+      airlane_name:
+        view:
+          +materialized: view
+      code_dictionary:
+        table:
+          +materialized: table
+      code_dictionary:
+        view:
+          +materialized: view
+      dictionary:
+        table:
+          +materialized: table
+      dictionary:
+        view:
+          +materialized: view  
+      delay_cancellation:
+        table:
+          +materialized: table
+      delay_cancellation:
+        view:
+          +materialized: view   
+    marts:
+      +materialized: view
