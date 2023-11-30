@@ -1,0 +1,14 @@
+profiles.yml:
+
+my_snowflake_profile:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: ejb74536.us-east-1.snowflakecomputing.com
+      warehouse: PC_DBT_WH
+      database: AIRLINES
+      schema: FLIGHTS
+      role: PC_DBT_ROLE
+      username: justynawalczyn
+      password: uBxOpXOY@1
