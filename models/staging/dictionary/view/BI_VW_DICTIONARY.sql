@@ -1,12 +1,11 @@
-with DICTIONARY as (
+CREATE OR REPLACE VIEW AIRLINES.FLIGHTS.BI_VW_DICTIONARY 
+COMMENT = 'Informations about data'
+(
+    Updated_Header comment 'Name of columns',
+    Source_Header comment 'Source name of columns',
+    Data_Type comment 'Types of data',
+    Description comment 'Description of columns' )
+    
+AS SELECT *
+from AIRLINES.FLIGHTS.DICTIONARY
 
-select
-    Updated_Header ,
-    Source_Header ,
-    Data_Type ,
-    Description 
-
-    from AIRLINES.FLIGHTS.DICTIONARY
-)
-
-select * from DICTIONARY
