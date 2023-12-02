@@ -1,3 +1,10 @@
+{{
+  config(
+    materialized='table'
+  )
+}}
+
+
 with DOT_CODE_DICTIONARY as (
 
 select

@@ -1,3 +1,10 @@
+{{
+  config(
+    materialized='table'
+  )
+}}
+
+
 with AIRLINE_CODE_DICTIONARY as (
 
 select

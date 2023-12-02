@@ -65,4 +65,5 @@ models:
         view:
           +materialized: view   
     marts:
-      +materialized: view
+      core:
+      +materialized: table

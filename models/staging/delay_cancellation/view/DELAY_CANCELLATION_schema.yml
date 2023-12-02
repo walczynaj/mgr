@@ -1,0 +1,22 @@
+
+version: 2
+
+sources:
+    - name: airlane_name
+      description: This is a replica of the Postgres database used by our app
+      database: airlines
+      schema: flights
+      tables:
+          - name: airlane_name
+            description: One record per customer.
+          - name: airline_code_dictionary
+            description: One record per order. Includes cancelled and deleted orders.
+            
+          - name: delay_cancellation
+            description: One record per order. Includes cancelled and deleted orders.
+            
+          - name: dictionary
+            description: One record per order. Includes cancelled and deleted orders.
+            
+          - name: dot_code_dictionary
+            description: One record per order. Includes cancelled and deleted orders.
