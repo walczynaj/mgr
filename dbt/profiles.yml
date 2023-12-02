@@ -1,6 +1,6 @@
 F360:
     outputs:
-    fashion:
+    airlines:
         account: '{{ env_var("SNOWFLAKE_ACCOUNT"})}'
         database: '{{ env_var("AIRLANES")}}'
         password: '{{ env_var("SNOWFLAKE_PASSWORD")}}'
