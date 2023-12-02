@@ -1,0 +1,19 @@
+version: 2
+
+sources:
+    - name: flights
+      description: This is a replica of the Flight Delay and Cancellation Dataset (2019-2023) from kaggle.pl platform 
+      database: airlines
+      schema: flights
+      tables: 
+        - name: AIRLANE_NAME
+          description: airlanes data
+        - name: AIRLINE_CODE_DICTIONARY
+          description: airlane code dictionary
+        - name: DELAY_CANCELLATIONS
+          description: data about flights dellay and cancellations
+        - name: DICTIONARY
+          description: fields description
+        - name: DOT_CODE_DICTIONARY
+          description: dot code dictionary.
+

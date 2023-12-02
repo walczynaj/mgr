@@ -12,7 +12,7 @@ select
     Data_Type ,
     Description 
 
-    from AIRLINES.FLIGHTS.DICTIONARY
+    from {{ source('flights', 'DICTIONARY') }}
 )
 
 select * from DICTIONARY

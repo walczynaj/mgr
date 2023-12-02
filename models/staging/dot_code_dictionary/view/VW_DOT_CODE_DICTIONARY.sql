@@ -11,7 +11,7 @@ select
     CODE ,
     DESCRIPTION 
 
-    from AIRLINES.FLIGHTS.DOT_CODE_DICTIONARY
+    from {{ source('flights', 'DOT_CODE_DICTIONARY') }}
 )
 
 select * from DOT_CODE_DICTIONARY

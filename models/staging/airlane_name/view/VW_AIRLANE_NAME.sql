@@ -44,7 +44,7 @@ select
     FL_MONTH ,
     FL_DAY 
 
-    from AIRLINES.FLIGHTS.AIRLANE_NAME
+    from {{ source('flights', 'AIRLANE_NAME') }}
 )
 
 select * from AIRLANE_NAME 
