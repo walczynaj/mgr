@@ -17,6 +17,18 @@ YEAR2022 as (
 
 ),
 
+YEAR2020 as (
+
+    select * from {{ ref('VW_YEAR2020') }}
+
+),
+
+YEAR2019 as (
+
+    select * from {{ ref('VW_YEAR2019') }}
+
+),
+
 YEAR2023 as (
 
     select * from {{ ref('VW_YEAR2023') }}
@@ -24,9 +36,13 @@ YEAR2023 as (
 ),
 
 DELAY_CANCELLATIONS as (
+        select * from YEAR2019
+            union all
+        select * from YEAR2020
+            union all
         select * from YEAR2021
             union all
-        select * from VW_YEAR2022
+        select * from YEAR2022
             union all
         select * from YEAR2023
 
