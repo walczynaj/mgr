@@ -2,6 +2,7 @@ WITH RouteDelays AS (
     SELECT
         ORIGIN,
         DEST,
+        AVG(DISTANCE) AS AVG_DISTANCE,
         COUNT(*) AS FLIGHT_COUNT,
         SUM(ARR_DELAY) AS TOTAL_ARR_DELAY
     FROM
@@ -13,6 +14,7 @@ RankedRoutes AS (
     SELECT
         ORIGIN,
         DEST,
+        AVG_DISTANCE,
         TOTAL_ARR_DELAY / FLIGHT_COUNT AS AVG_DELAY,
         FLIGHT_COUNT,
         DENSE_RANK() OVER (ORDER BY FLIGHT_COUNT DESC) AS FLIGHT_RANK
@@ -22,6 +24,7 @@ RankedRoutes AS (
 SELECT
     ORIGIN,
     DEST,
+    AVG_DISTANCE,
     AVG_DELAY,
     FLIGHT_COUNT
 FROM
