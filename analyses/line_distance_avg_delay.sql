@@ -1,0 +1,42 @@
+WITH DelayData AS (
+    SELECT
+        AIRLINE_CODE,
+        DISTANCE,
+        ARR_DELAY
+    FROM
+        delay_cancelations
+),
+AvgDelays AS (
+    SELECT
+        AIRLINE_CODE,
+        AVG(ARR_DELAY) AS AVG_DELAY,
+        DISTANCE
+    FROM
+        DelayData
+    GROUP BY
+        AIRLINE_CODE, DISTANCE
+),
+MaxMinDelays AS (
+    SELECT
+        AIRLINE_CODE,
+        MAX(AVG_DELAY) AS MAX_DELAY,
+        MIN(AVG_DELAY) AS MIN_DELAY
+    FROM
+        AvgDelays
+    GROUP BY
+        AIRLINE_CODE
+)
+SELECT
+    m.AIRLINE_CODE,
+    m.MAX_DELAY,
+    a1.DISTANCE AS DISTANCE_FOR_MAX_DELAY,
+    m.MIN_DELAY,
+    a2.DISTANCE AS DISTANCE_FOR_MIN_DELAY
+FROM
+    MaxMinDelays m
+JOIN
+    AvgDelays a1 ON m.AIRLINE_CODE = a1.AIRLINE_CODE AND m.MAX_DELAY = a1.AVG_DELAY
+JOIN
+    AvgDelays a2 ON m.AIRLINE_CODE = a2.AIRLINE_CODE AND m.MIN_DELAY = a2.AVG_DELAY
+ORDER BY
+    m.MIN_DELAY, m.MAX_DELAY DESC;
